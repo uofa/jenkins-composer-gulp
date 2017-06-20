@@ -1,2 +1,3 @@
 # jenkins-composer-gulp
-docker.io/321zeno/jenkins-composer-gulp
+
+<https://hub.docker.com/r/321zeno/jenkins-composer-gulp/>
