@@ -1,6 +1,9 @@
-FROM jenkins
+FROM jenkins/jenkins
 MAINTAINER Zeno Zaplaic "zeno.zaplaic@abdn.ac.uk"
-ENV REFRESHED_AT 2017-06-20
+ENV REFRESHED_AT 2017-08-23
+
+# Install Blue Ocean and a couple of useful plugins
+RUN /usr/local/bin/install-plugins.sh blueocean workflow-job ssh-agent
 
 # Switch to root
 USER root
@@ -8,8 +11,12 @@ USER root
 # Git & Curl
 RUN apt-get update && apt-get install -y git curl
 
+# Required for `add-apt-repository`
+RUN apt-get install software-properties-common -y
+# Add 3rd party repository for php 5.6
+RUN add-apt-repository ppa:ondrej/php && apt-get update
 # Install PHP and Composer
-RUN apt-get install php5 libapache2-mod-php5 php5-mcrypt php5-ldap -y
+RUN apt-get install php5.6 libapache2-mod-php5.6 php5.6-mcrypt php5.6-ldap -y --allow-unauthenticated
 RUN wget https://getcomposer.org/installer && php installer && php composer.phar && mv composer.phar /usr/local/bin/composer
 
 # Install Nodejs & npm
