@@ -14,9 +14,11 @@ RUN apt-get update && apt-get install -y git curl
 # Required for `add-apt-repository`
 RUN apt-get install software-properties-common -y
 # Add 3rd party repository for php 5.6
-RUN add-apt-repository ppa:ondrej/php && apt-get update
+RUN add-apt-repository -y ppa:ondrej/php
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 4F4EA0AAE5267A6C
+RUN apt-get update
 # Install PHP and Composer
-RUN apt-get install php5.6 libapache2-mod-php5.6 php5.6-mcrypt php5.6-ldap -y --allow-unauthenticated
+RUN apt-get install php5.6 libapache2-mod-php5.6 php5.6-mcrypt php5.6-ldap -y
 RUN wget https://getcomposer.org/installer && php installer && php composer.phar && mv composer.phar /usr/local/bin/composer
 
 # Install Nodejs & npm
