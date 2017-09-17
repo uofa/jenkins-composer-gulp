@@ -1,6 +1,6 @@
 FROM jenkins/jenkins
 MAINTAINER Zeno Zaplaic "zeno.zaplaic@abdn.ac.uk"
-ENV REFRESHED_AT 2017-08-23
+ENV REFRESHED_AT 2017-09-17
 
 # Install Blue Ocean and a couple of useful plugins
 RUN /usr/local/bin/install-plugins.sh blueocean workflow-job ssh-agent
