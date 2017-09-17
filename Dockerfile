@@ -18,7 +18,7 @@ RUN add-apt-repository -y ppa:ondrej/php
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-key 4F4EA0AAE5267A6C
 RUN apt-get update
 # Install PHP and Composer
-RUN apt-get install php5.6 libapache2-mod-php5.6 php5.6-mcrypt php5.6-ldap -y
+RUN apt-get install php5.6 libapache2-mod-php5.6 php5.6-mcrypt php5.6-mbstring php5.6-ldap -y
 RUN wget https://getcomposer.org/installer && php installer && php composer.phar && mv composer.phar /usr/local/bin/composer
 
 # Install Nodejs & npm
