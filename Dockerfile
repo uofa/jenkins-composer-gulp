@@ -1,6 +1,6 @@
 FROM jenkins/jenkins
 MAINTAINER Zeno Zaplaic "zeno.zaplaic@abdn.ac.uk"
-ENV REFRESHED_AT 2017-09-17
+ENV REFRESHED_AT 2017-09-21
 
 # Install Blue Ocean and a couple of useful plugins
 RUN /usr/local/bin/install-plugins.sh blueocean workflow-job ssh-agent
@@ -9,7 +9,7 @@ RUN /usr/local/bin/install-plugins.sh blueocean workflow-job ssh-agent
 USER root
 
 # Git & Curl
-RUN apt-get update && apt-get install -y git curl
+RUN apt-get update && apt-get install -y git curl git-ftp
 
 # Required for `add-apt-repository`
 RUN apt-get install software-properties-common -y
