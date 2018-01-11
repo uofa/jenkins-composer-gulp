@@ -1,5 +1,5 @@
 FROM jenkins/jenkins
-MAINTAINER Zeno Zaplaic "zeno.zaplaic@abdn.ac.uk"
+MAINTAINER Michael Wolfindale "m.wolfindale@abdn.ac.uk"
 ENV REFRESHED_AT 2017-09-26
 
 # Install Blue Ocean and a couple of useful plugins
